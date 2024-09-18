@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+      <PackageType>Template</PackageType>
+      <PackageId>LSL.DotNetTool.Template</PackageId>
+      <Version>1.0.0</Version>
+      <PackageVersion>1.0.0</PackageVersion>      
+      <Title>DotNet Tool Template</Title>
+      <Authors>alunacjones</Authors>
+      <Description>A template to quickly create a dependecy injected CLI</Description>
+      <PackageTags>dotnet-new;templates;cli;dotnet;new;di;dependency-injection;dependency;injection</PackageTags>
+      <TargetFramework>net6.0</TargetFramework>
+      <IncludeContentInPack>true</IncludeContentInPack>
+      <IncludeBuildOutput>false</IncludeBuildOutput>
+      <NoDefaultExcludes>true</NoDefaultExcludes>
+      <ContentTargetFolders>content</ContentTargetFolders>
+      <PackageReadmeFile>README.md</PackageReadmeFile>
+      <PackageLicenseExpression>MIT</PackageLicenseExpression>
+      <NoWarn>$(NoWarn);NU5128</NoWarn>
+      <RepositoryUrl>https://github.com/alunacjones/LSL.DotnetNetTool.Template</RepositoryUrl>
+      <Authors>alunacjones</Authors>  
+    </PropertyGroup>
+  
+    <ItemGroup>
+      <Content Include="templates\**\*" Exclude="templates\**\bin\**;template\**\obj\**" />
+      <Compile Remove="**\*" />
+      <None Include="readme.md" Pack="true" PackagePath="\"/>
+    </ItemGroup>
+  
+  </Project>

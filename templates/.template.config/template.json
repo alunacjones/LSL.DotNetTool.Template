@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Alun Jones",
+  "classifications": [ "netstandard", "dotnet", "tool" ],
+  "name": "DotNetTool Template",
+  "identity": "lsl.dotnettool",
+  "shortName": "lsl.dotnettool",
+  "tags": {
+    "language": "C#",
+    "type": "solution"
+  },
+  "sourceName": "LSL.DotNetTool",
+  "preferNameDirectory": true,
+  "symbols": {
+
+  },
+  "guids": [
+    "D68EF940-7562-4B54-86B6-86949D64ED12",
+    "73AEE648-FC6A-4528-A0E5-548AB5981676"
+  ],
+  "placeholderFilename": ".keep"
+}
