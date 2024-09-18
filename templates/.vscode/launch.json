@@ -10,7 +10,7 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/bin/Debug/net6.0/LSL.DotNet.Tool.dll",
+            "program": "${workspaceFolder}/src/LSL.DotNetTool.Cli/bin/Debug/net6.0/LSL.DotNetTool.Cli.dll",
             "args": [
                 "help"
             ],
