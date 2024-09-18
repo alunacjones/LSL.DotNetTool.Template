@@ -3,7 +3,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace LSL.DotNetTool.Cli.Infrastructure;
 
-public static class HostFactory
+public static class HostBuilderFactory
 {
     public static IHostBuilder Create(string[] args)
     {

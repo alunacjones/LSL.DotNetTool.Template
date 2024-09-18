@@ -1,6 +1,6 @@
  using LSL.DotNetTool.Cli.Infrastructure;
 
-return await HostFactory
+return await HostBuilderFactory
     .Create(args)
     .Build()
     .RunAsync();
