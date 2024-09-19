@@ -1,13 +1,15 @@
 using CommandLine;
 using CommandLineParser.DependencyInjection.Interfaces;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using LSL.DotNetTool.Cli.Infrastructure;
+using LSL.DotNetTool.Cli.Tests.TestHelpers;
 using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
 
 namespace LSL.DotNetTool.Cli.Tests.Handlers;
 
-public class PingHandlerTests
+public class PingHandlerTests : BaseCliTest
 {
     [TestCase(new string[0], "Pong\r\n")]
     [TestCase(new string[] { "aha" }, "aha\r\n")]
@@ -34,6 +36,8 @@ public class PingHandlerTests
             .RunAsync();
 
         // Assert
+        using var _ = new AssertionScope();
+
         result.Should().Be(0);
 
         writer.ToString().Should().Be(expectedOutput);
