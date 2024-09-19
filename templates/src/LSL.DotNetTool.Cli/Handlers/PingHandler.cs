@@ -1,5 +1,3 @@
-using LSL.DotNetTool.Cli.Infrastructure;
-using LSL.DotNetTool.Cli.Options;
 using Microsoft.Extensions.Logging;
 
 namespace LSL.DotNetTool.Cli.Handlers;
