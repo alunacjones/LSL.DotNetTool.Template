@@ -12,8 +12,23 @@
   "sourceName": "LSL.DotNetTool",
   "preferNameDirectory": true,
   "symbols": {
-
   },
+  "sources": [{
+    "rename": {
+        ".project-gitignore": ".gitignore"
+    },
+    "exclude": [
+      "**/[Bb]in/**",
+      "**/[Oo]bj/**",
+      ".template.config/**/*",
+      "**/*.filelist",
+      "**/*.user",
+      "**/*.lock.json",
+      "**/*.g.cs",
+      ".gitignore",
+      "**/Logs/**"
+    ]  
+  }],  
   "guids": [
     "D68EF940-7562-4B54-86B6-86949D64ED12",
     "73AEE648-FC6A-4528-A0E5-548AB5981676"
