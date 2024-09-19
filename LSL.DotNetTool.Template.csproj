@@ -22,7 +22,7 @@
     </PropertyGroup>
   
     <ItemGroup>
-      <Content Include="templates\**\*" Exclude="templates\**\bin\**;template\**\obj\**" />
+      <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**" />
       <Compile Remove="**\*" />
       <None Include="readme.md" Pack="true" PackagePath="\"/>
     </ItemGroup>

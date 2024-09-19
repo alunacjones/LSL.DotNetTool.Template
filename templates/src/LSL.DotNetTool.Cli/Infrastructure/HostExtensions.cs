@@ -10,12 +10,13 @@ public static class HostExtensions
     public static async Task<int> RunAsync(this IHost host)
     {
         var args = host.Services.GetRequiredService<IOptions<CommandLineOptions>>().Value.Arguments;
+        var consoleWriter = host.Services.GetRequiredService<IOptions<ConsoleOptions>>().Value.TextWriter;
 
         return await host
             .Services
             .GetRequiredService<ICommandLineParser<int>>()
             .ParseArgumentsAsync(
                 args,
-                c => c.HelpWriter = Console.Out);
+                c => c.HelpWriter = consoleWriter);
     }
 }

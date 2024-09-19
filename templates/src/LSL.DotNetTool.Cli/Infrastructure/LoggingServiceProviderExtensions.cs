@@ -1,5 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Configuration;
 
 namespace LSL.DotNetTool.Cli.Infrastructure;
 
@@ -10,10 +11,11 @@ public static class LoggingServiceProviderExtensions
         return source.AddLogging(c => 
         {
             c.ClearProviders();
-            
+
             if (isVerbose)
             {
-                c.AddSimpleConsole(c => c.SingleLine = true);
+                c.Services.AddSingleton<ILoggerProvider, CustomConsoleLoggerProvider>();
+                LoggerProviderOptions.RegisterProviderOptions<ConsoleOptions, CustomConsoleLogger>(c.Services);
                 c.SetMinimumLevel(LogLevel.Debug);
             }
         });
