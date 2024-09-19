@@ -2,9 +2,7 @@ using CommandLine;
 using CommandLineParser.DependencyInjection.Interfaces;
 using FluentAssertions;
 using FluentAssertions.Execution;
-using LSL.DotNetTool.Cli.Infrastructure;
 using LSL.DotNetTool.Cli.Tests.TestHelpers;
-using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
 
 namespace LSL.DotNetTool.Cli.Tests.Handlers;
@@ -19,14 +17,13 @@ public class PingHandlerTests : BaseCliTest
     [TestCase(new string[] { "ping", "aha", "--verbose" }, "[INF] Executing ping\r\naha\r\n")]
     public async Task Given_ValidArguments_ItShouldReturnTheExpectedResult(string[] args, string expectedOutput)
     {
-        // Arrange
+        // Act
         var (result, output) = await RunCli(args);        
 
         // Assert
         using var _ = new AssertionScope();
 
         result.Should().Be(0);
-
         output.Should().Be(expectedOutput);
     }
 
@@ -42,27 +39,6 @@ public class PingHandlerTests : BaseCliTest
         public Task<int> ExecuteAsync(Test options)
         {
             return Task.FromResult(0);
-        }
-    }
-
-    public class ConsoleOutput : IDisposable
-    {
-        private StringWriter _stringWriter;
-        private TextWriter _originalOutput;
-
-        public ConsoleOutput()
-        {
-            _stringWriter = new StringWriter();
-            _originalOutput = Console.Out;
-            Console.SetOut(_stringWriter);
-        }
-
-        public override string ToString() => _stringWriter.ToString();
-
-        public void Dispose()
-        {
-            Console.SetOut(_originalOutput);
-            _stringWriter.Dispose();
         }
     }
 }

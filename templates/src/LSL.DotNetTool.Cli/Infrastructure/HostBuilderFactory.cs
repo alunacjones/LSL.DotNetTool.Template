@@ -18,13 +18,7 @@ public static class HostBuilderFactory
             services
                 .Configure<CommandLineOptions>(c => c.Arguments = filteredArguments)
                 .AddSingleton<IConsole, DefaultConsole>()
-                .AddScoped<CustomConsoleLogger>()
-                .AddSingleton<ILoggerProvider>(s =>
-                {
-                    var options = s.GetRequiredService<IOptions<ConsoleOptions>>();
-                    var console = s.GetRequiredService<IConsole>();
-                    return new CustomConsoleLoggerProvider(options, console);
-                })
+                .AddSingleton<ILoggerProvider>(s => new CustomConsoleLoggerProvider(s.GetRequiredService<IConsole>()))
                 .AddCommandLineParser(typeof(Program).Assembly)
                 .AddCliLogging(isVerbose);
         });
