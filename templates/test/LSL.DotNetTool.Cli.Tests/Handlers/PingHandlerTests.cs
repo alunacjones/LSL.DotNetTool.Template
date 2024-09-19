@@ -20,27 +20,14 @@ public class PingHandlerTests : BaseCliTest
     public async Task Given_ValidArguments_ItShouldReturnTheExpectedResult(string[] args, string expectedOutput)
     {
         // Arrange
-        using var writer = new StringWriter();
-
-        // Act
-        var result = await HostBuilderFactory.Create(args)
-            .ConfigureServices((context, services) =>
-            {
-                // Setup any mocks here
-                services.Configure<ConsoleOptions>(s => 
-                {
-                    s.TextWriter = writer;
-                });
-            })
-            .Build()
-            .RunAsync();
+        var (result, output) = await RunCli(args);        
 
         // Assert
         using var _ = new AssertionScope();
 
         result.Should().Be(0);
 
-        writer.ToString().Should().Be(expectedOutput);
+        output.Should().Be(expectedOutput);
     }
 
     [Verb("test")]

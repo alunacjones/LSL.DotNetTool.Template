@@ -5,14 +5,14 @@ namespace LSL.DotNetTool.Cli.Tests.TestHelpers;
 
 public abstract class BaseCliTest
 {
-    protected async Task<int> RunTest(
+    protected async Task<(int result, string output)> RunCli(
         string[] args,
         Action<IServiceCollection>? servicesConfigurator = null)
     {
         using var writer = new StringWriter();
 
-        var app = HostBuilderFactory.Create(args)
-            .ConfigureServices((contest, services) =>
+        var result =  await HostBuilderFactory.Create(args)
+            .ConfigureServices((context, services) =>
             {
                 services.Configure<ConsoleOptions>(s =>
                 {
@@ -21,8 +21,9 @@ public abstract class BaseCliTest
 
                 servicesConfigurator?.Invoke(services);
             })
-            .Build();
+            .Build()
+            .RunAsync();
 
-        return await app.RunAsync();
+        return (result, writer.ToString());
     }
 }
