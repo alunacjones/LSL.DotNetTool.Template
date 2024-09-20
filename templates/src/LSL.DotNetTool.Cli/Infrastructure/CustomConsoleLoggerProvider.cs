@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using LSL.AbstractConsole;
 using Microsoft.Extensions.Logging;
 
 namespace LSL.DotNetTool.Cli.Infrastructure;

@@ -2,7 +2,7 @@ using CommandLine;
 using CommandLineParser.DependencyInjection.Interfaces;
 using FluentAssertions;
 using FluentAssertions.Execution;
-using LSL.DotNetTool.Cli.Infrastructure;
+using LSL.AbstractConsole;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 

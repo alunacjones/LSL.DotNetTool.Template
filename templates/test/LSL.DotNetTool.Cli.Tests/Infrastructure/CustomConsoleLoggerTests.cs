@@ -1,10 +1,9 @@
 using FluentAssertions;
+using LSL.AbstractConsole;
 using LSL.DotNetTool.Cli.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Configuration;
-using Microsoft.Extensions.Options;
 
 namespace LSL.DotNetTool.Cli.Tests.Infrastructure;
 
