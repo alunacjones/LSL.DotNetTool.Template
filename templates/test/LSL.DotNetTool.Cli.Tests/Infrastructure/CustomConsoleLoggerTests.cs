@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Configuration;
+using Microsoft.Extensions.Options;
 
 namespace LSL.DotNetTool.Cli.Tests.Infrastructure;
 
@@ -18,19 +19,14 @@ public class CustomConsoleLoggerTests
         var host = Host.CreateDefaultBuilder()
             .ConfigureServices(services =>
             {
-                services.AddSingleton<IConsole, DefaultConsole>()
+                services
+                    .AddSingleton<IConsole, DefaultConsole>(s => new DefaultConsole(writer))
                     .AddSingleton<LoggingTesting>()
-                    .Configure<ConsoleOptions>(o => o.TextWriter = writer)
                     .AddLogging(l =>
                     {
                         l.ClearProviders();
 
-                        l.Services
-                            .AddSingleton<ILoggerProvider>(
-                                s => new CustomConsoleLoggerProvider(s.GetRequiredService<IConsole>())
-                            );
-                        
-                        LoggerProviderOptions.RegisterProviderOptions<ConsoleOptions, CustomConsoleLogger>(l.Services);
+                        l.Services.AddSingleton<ILoggerProvider, CustomConsoleLoggerProvider>();
                         l.SetMinimumLevel(LogLevel.Trace);
                     });
 

@@ -1,12 +1,10 @@
-using Microsoft.Extensions.Options;
-
 namespace LSL.DotNetTool.Cli.Infrastructure;
 
 public class DefaultConsole : IConsole
 {
-    private readonly ConsoleOptions _options;
+    private readonly TextWriter _writer;
 
-    public DefaultConsole(IOptions<ConsoleOptions> options) => _options = options.Value;
+    public DefaultConsole(TextWriter writer) => _writer = writer;
 
     public IConsole Write(string text, bool includeNewLine, IEnumerable<object> args)
     {
@@ -18,10 +16,10 @@ public class DefaultConsole : IConsole
 
         return (includeNewLine, args) switch
         {
-            (true, _) when args.Any() => Execute(() => _options.TextWriter.WriteLine(text, args.ToArray())),
-            (true, _) => Execute(() => Execute(() => _options.TextWriter.WriteLine(text))),
-            (false, _) when args.Any() => Execute(() => _options.TextWriter.Write(text, args.ToArray())),
-            (false, _) => Execute(() => _options.TextWriter.Write(text))
+            (true, _) when args.Any() => Execute(() => _writer.WriteLine(text, args.ToArray())),
+            (true, _) => Execute(() => Execute(() => _writer.WriteLine(text))),
+            (false, _) when args.Any() => Execute(() => _writer.Write(text, args.ToArray())),
+            (false, _) => Execute(() => _writer.Write(text))
         };
     }
 }
