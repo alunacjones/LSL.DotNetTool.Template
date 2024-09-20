@@ -1,17 +1,18 @@
 using LSL.DotNetTool.Cli.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 namespace LSL.DotNetTool.Cli.Tests.TestHelpers;
 
 public abstract class BaseCliTest
 {
-    protected async Task<(int result, string output)> RunCli(
+    protected static IHost BuildTestHost(
         string[] args,
         Action<IServiceCollection>? servicesConfigurator = null)
     {
-        using var writer = new StringWriter();
+        var writer = new StringWriter();
 
-        var result =  await HostBuilderFactory.Create(args)
+        return HostBuilderFactory.Create(args)
             .ConfigureServices((context, services) =>
             {
                 services.Configure<ConsoleOptions>(s =>
@@ -21,9 +22,6 @@ public abstract class BaseCliTest
 
                 servicesConfigurator?.Invoke(services);
             })
-            .Build()
-            .RunAsync();
-
-        return (result, writer.ToString());
+            .Build();
     }
 }

@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Microsoft.Extensions.Logging;
 
 namespace LSL.DotNetTool.Cli.Infrastructure;
@@ -10,5 +11,6 @@ public class CustomConsoleLoggerProvider : ILoggerProvider
 
     public ILogger CreateLogger(string categoryName) => new CustomConsoleLogger(_console);
 
+    [ExcludeFromCodeCoverage]
     public void Dispose() => GC.SuppressFinalize(this);
 }

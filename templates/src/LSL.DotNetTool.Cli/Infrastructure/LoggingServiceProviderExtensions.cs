@@ -14,7 +14,11 @@ public static class LoggingServiceProviderExtensions
 
             if (isVerbose)
             {
-                c.Services.AddSingleton<ILoggerProvider, CustomConsoleLoggerProvider>();
+                c.Services
+                    .AddSingleton<ILoggerProvider>(
+                        s => new CustomConsoleLoggerProvider(s.GetRequiredService<IConsole>())
+                    );
+
                 LoggerProviderOptions.RegisterProviderOptions<ConsoleOptions, CustomConsoleLogger>(c.Services);
                 c.SetMinimumLevel(LogLevel.Debug);
             }

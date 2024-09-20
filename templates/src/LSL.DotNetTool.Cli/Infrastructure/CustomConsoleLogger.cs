@@ -18,7 +18,6 @@ public class CustomConsoleLogger : ILogger
     [ExcludeFromCodeCoverage]
     public bool IsEnabled(LogLevel logLevel) => true;
 
-    [ExcludeFromCodeCoverage]
     public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception, Func<TState, Exception?, string> formatter)
     {
         _console.Write($"[{LogLevelToShortCode(logLevel)}] ");
@@ -28,12 +27,10 @@ public class CustomConsoleLogger : ILogger
     private static string LogLevelToShortCode(LogLevel logLevel) => logLevel switch
     {
         LogLevel.Debug => "DBG",
-        LogLevel.Trace => "TRC",
         LogLevel.Information => "INF",
         LogLevel.Warning => "WRN",
         LogLevel.Error => "ERR",
         LogLevel.Critical => "CRT",
-        LogLevel.None => "NON",
-        _ => "UNK"
+        _ => ""
     };
 }

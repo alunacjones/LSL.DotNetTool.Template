@@ -17,7 +17,7 @@ public class DefaultConsole : IConsole
         {
             if (args.Any())
             {
-                _options.TextWriter.WriteLine(text, args);
+                _options.TextWriter.WriteLine(text, args.ToArray());
             }
             else
             {
@@ -28,7 +28,7 @@ public class DefaultConsole : IConsole
         {
             if (args.Any())
             {
-                _options.TextWriter.Write(text, args);
+                _options.TextWriter.Write(text, args.ToArray());
             }
             else
             {

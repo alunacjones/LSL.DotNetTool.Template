@@ -1,7 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
 namespace LSL.DotNetTool.Cli.Infrastructure;
 
@@ -17,8 +15,7 @@ public static class HostBuilderFactory
 
             services
                 .Configure<CommandLineOptions>(c => c.Arguments = filteredArguments)
-                .AddSingleton<IConsole, DefaultConsole>()
-                .AddSingleton<ILoggerProvider>(s => new CustomConsoleLoggerProvider(s.GetRequiredService<IConsole>()))
+                .AddSingleton<IConsole, DefaultConsole>()                
                 .AddCommandLineParser(typeof(Program).Assembly)
                 .AddCliLogging(isVerbose);
         });
