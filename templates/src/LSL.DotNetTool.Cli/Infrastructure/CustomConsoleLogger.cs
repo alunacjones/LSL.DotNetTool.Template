@@ -18,11 +18,10 @@ public class CustomConsoleLogger : ILogger
     [ExcludeFromCodeCoverage]
     public bool IsEnabled(LogLevel logLevel) => true;
 
-    public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception, Func<TState, Exception?, string> formatter)
-    {
-        _console.Write($"[{LogLevelToShortCode(logLevel)}] ");
-        _console.WriteLine($"{formatter(state, exception)}");
-    }
+    public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception, Func<TState, Exception?, string> formatter) => 
+        _console
+            .Write($"[{LogLevelToShortCode(logLevel)}] ")
+            .WriteLine($"{formatter(state, exception)}");
 
     private static string LogLevelToShortCode(LogLevel logLevel) => logLevel switch
     {
