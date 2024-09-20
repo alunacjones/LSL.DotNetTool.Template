@@ -1,4 +1,5 @@
 using CommandLineParser.DependencyInjection.Interfaces;
+using LSL.AbstractConsole.ServiceProvider;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;

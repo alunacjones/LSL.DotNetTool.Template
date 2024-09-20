@@ -16,6 +16,6 @@
     <PackageReference Include="CommandLineParser.DependencyInjection" Version="1.1.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
-    <PackageReference Include="LSL.AbstractConsole" Version="1.0.3" />
+    <PackageReference Include="LSL.AbstractConsole.ServiceProvider" Version="1.0.1" />
   </ItemGroup>
 </Project>
