@@ -25,7 +25,7 @@
     <PackageReadmeFile>readme.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <NoWarn>$(NoWarn);NU5128</NoWarn>
-    <RepositoryUrl>https://github.com/alunacjones/LSL.DotnetNetTool.Template</RepositoryUrl>
+    <RepositoryUrl>https://github.com/alunacjones/LSL.DotNetTool.Template</RepositoryUrl>
     <Authors>alunacjones</Authors>
   </PropertyGroup>
 
