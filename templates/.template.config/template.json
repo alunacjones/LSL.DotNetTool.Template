@@ -12,11 +12,19 @@
   "sourceName": "LSL.DotNetTool",
   "preferNameDirectory": true,
   "symbols": {
-    "IncludeExample": {
+    "includeExample": {
+      "description": "Adds an example verb with a handler and unit tests (Ping)",
       "type": "parameter",
       "datatype": "bool",
       "defaultValue": "false"
-    }
+    },
+    "commandName": {
+      "description": "Specify the command name for the generated tool",
+      "type": "parameter",
+      "datatype": "text",
+      "defaultValue": "LSL.DotNetTool",
+      "replaces": "DotNetToolCommandName"
+    } 
   },
   "sources": [{
     "rename": {
@@ -24,11 +32,11 @@
     },
     "modifiers": [
       {
-        "condition": "(!IncludeExample)",
+        "condition": "(!includeExample)",
         "exclude": [
-          "./src/LSL.DotNetTool.Cli/Handlers/PingHandler.cs",
-          "./src/LSL.DotNetTool.Cli/Options/Ping.cs",
-          "./test/LSL.DotNetTool.Cli.Tests/Handlers/PingHandlerTests.cs"
+          "src/LSL.DotNetTool.Cli/Handlers/PingHandler.cs",
+          "src/LSL.DotNetTool.Cli/Options/Ping.cs",
+          "test/LSL.DotNetTool.Cli.Tests/Handlers/PingHandlerTests.cs"
         ]
       }
     ],
@@ -42,7 +50,7 @@
       "**/*.g.cs",
       ".gitignore",
       "**/Logs/**"
-    ]  
+    ]
   }],  
   "guids": [
     "D68EF940-7562-4B54-86B6-86949D64ED12",
