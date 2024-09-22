@@ -1,7 +1,3 @@
-using CommandLine;
-using CommandLineParser.DependencyInjection.Interfaces;
-using LSL.AbstractConsole;
-
 namespace LSL.DotNetTool.Cli.Infrastructure;
 
 public class AdditionalHelpTextProvider : IExecuteParsingFailure<int>

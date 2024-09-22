@@ -1,5 +1,3 @@
-using CommandLineParser.DependencyInjection.Interfaces;
-
 namespace LSL.DotNetTool.Cli.Infrastructure;
 
 public interface IHandler<T> : IExecuteCommandLineOptions<T, int>

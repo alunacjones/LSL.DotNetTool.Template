@@ -61,6 +61,7 @@ The generated solution is structured as follows:
 
 Adding classes to the above folders will automatically include any new options and handlers at runtime.
 
+Use an `IConsole` to write any messages to the console. This abstraction allows for easier testing.
 
 ### Unit Testing
 

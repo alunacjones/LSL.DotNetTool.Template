@@ -1,6 +1,5 @@
 using LSL.Tool.Logger;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 
 namespace LSL.DotNetTool.Cli.Infrastructure;
 

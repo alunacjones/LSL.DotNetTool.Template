@@ -1,5 +1,3 @@
-using CommandLineParser.DependencyInjection.Interfaces;
-using LSL.AbstractConsole;
 using LSL.AbstractConsole.ServiceProvider;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -7,7 +5,7 @@ using Microsoft.Extensions.Options;
 
 namespace LSL.DotNetTool.Cli.Infrastructure;
 
-public static class HostExtensions
+internal static class HostExtensions
 {
     public static async Task<int> RunCliAsync(this IHost host)
     {
