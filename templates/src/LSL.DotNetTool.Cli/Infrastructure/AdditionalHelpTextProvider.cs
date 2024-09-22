@@ -1,5 +1,8 @@
 namespace LSL.DotNetTool.Cli.Infrastructure;
 
+/// <summary>
+/// Provides additional help text showing the <c>--verbose</c>
+/// </summary>
 public class AdditionalHelpTextProvider : IExecuteParsingFailure<int>
 {
     private readonly IConsole _console;

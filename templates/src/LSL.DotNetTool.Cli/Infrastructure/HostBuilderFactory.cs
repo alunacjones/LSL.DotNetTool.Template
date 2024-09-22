@@ -6,6 +6,11 @@ namespace LSL.DotNetTool.Cli.Infrastructure;
 
 public static class HostBuilderFactory
 {
+    /// <summary>
+    /// Creates a host builder for the CLI
+    /// </summary>
+    /// <param name="args">The arguments passed into the CLI</param>
+    /// <returns></returns>
     public static IHostBuilder Create(string[] args)
     {
         var builder = Host.CreateDefaultBuilder();

@@ -5,8 +5,13 @@ using Microsoft.Extensions.Options;
 
 namespace LSL.DotNetTool.Cli.Infrastructure;
 
-internal static class HostExtensions
+public static class HostExtensions
 {
+    /// <summary>
+    /// Runs the CLI
+    /// </summary>
+    /// <param name="host">The host instance to run</param>
+    /// <returns>The exit code from the executed handler</returns>
     public static async Task<int> RunCliAsync(this IHost host)
     {
         var args = host.Services.GetRequiredService<IOptions<CommandLineOptions>>().Value.Arguments;
