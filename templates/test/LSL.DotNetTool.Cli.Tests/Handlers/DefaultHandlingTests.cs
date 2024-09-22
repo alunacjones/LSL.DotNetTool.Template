@@ -4,7 +4,10 @@ using FluentAssertions;
 using FluentAssertions.Execution;
 using LSL.AbstractConsole;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
+using NSubstitute;
+using NSubstitute.ExceptionExtensions;
 
 namespace LSL.DotNetTool.Cli.Tests.Handlers;
 
@@ -84,6 +87,31 @@ public class DefaultHandlingTests : BaseCliTest
         output.Should().Be(expectedOutput);
     }    
 
+    [Test]
+    public async Task GivenACallThatThrows_ItShouldOutputTheTheExpectedResult()
+    {
+        // Arrange
+        var host = BuildTestHost(
+            ["exec"],
+            s =>
+            {
+                var mock = Substitute.For<ICommandLineParser<int>>();
+                mock.ParseArgumentsAsync(Arg.Any<string[]>(), Arg.Any<Action<ParserSettings>>()).ThrowsAsync<ArgumentOutOfRangeException>();
+                s.RemoveAll(typeof(ICommandLineParser<>));
+                s.RemoveAll<ICommandLineOptions>();
+
+                s.AddSingleton(mock);
+            });
+
+        // Act
+        var (result, output) = await host.RunTestCliAsync();
+
+        // Assert
+        using var _ = new AssertionScope();
+
+        result.Should().Be(1);
+        output.Should().StartWith("It looks like this project has not yet added any Options or Handlers for the CLI");
+    }
 
     [Verb("test")]
     public class Test : ICommandLineOptions

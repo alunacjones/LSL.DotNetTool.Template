@@ -38,6 +38,12 @@
           "src/LSL.DotNetTool.Cli/Options/Ping.cs",
           "test/LSL.DotNetTool.Cli.Tests/Handlers/PingHandlerTests.cs"
         ]
+      },
+      {
+        "condition": "(includeExample)",
+        "exclude": [
+          "src/LSL.DotNetTool.Cli/Options/MyFirstVerb.cs"
+        ]
       }
     ],
     "exclude": [
