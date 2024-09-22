@@ -5,3 +5,4 @@ global using LSL.DotNetTool.Cli.Options;
 //global using LSL.DotNetTool.Cli.Options;
 #endif
 global using LSL.DotNetTool.Cli.Infrastructure;
+global using CommandLine;
