@@ -7,7 +7,7 @@
     <AssemblyOriginatorKeyFile>$(SnkFile)</AssemblyOriginatorKeyFile>
     <SignAssembly>True</SignAssembly>
   </PropertyGroup>
-  
+
   <PropertyGroup>
     <PackageType>Template</PackageType>
     <PackageId>LSL.DotNetTool.Template</PackageId>
@@ -22,7 +22,7 @@
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <NoDefaultExcludes>true</NoDefaultExcludes>
     <ContentTargetFolders>content</ContentTargetFolders>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <NoWarn>$(NoWarn);NU5128</NoWarn>
     <RepositoryUrl>https://github.com/alunacjones/LSL.DotnetNetTool.Template</RepositoryUrl>
