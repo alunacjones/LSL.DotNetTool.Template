@@ -12,11 +12,26 @@
   "sourceName": "LSL.DotNetTool",
   "preferNameDirectory": true,
   "symbols": {
+    "IncludeExample": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false"
+    }
   },
   "sources": [{
     "rename": {
         ".project-gitignore": ".gitignore"
     },
+    "modifiers": [
+      {
+        "condition": "(!IncludeExample)",
+        "exclude": [
+          "./src/LSL.DotNetTool.Cli/Handlers/PingHandler.cs",
+          "./src/LSL.DotNetTool.Cli/Options/Ping.cs",
+          "./test/LSL.DotNetTool.Cli.Tests/Handlers/PingHandlerTests.cs"
+        ]
+      }
+    ],
     "exclude": [
       "**/[Bb]in/**",
       "**/[Oo]bj/**",
