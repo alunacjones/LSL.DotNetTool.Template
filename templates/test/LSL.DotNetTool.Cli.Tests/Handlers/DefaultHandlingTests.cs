@@ -23,7 +23,7 @@ public class DefaultHandlingTests : BaseCliTest
         // Assert
         using var _ = new AssertionScope();
 
-        result.Should().Be(1);
+        result.Should().Be(0);
         output.Should().Contain("help");
     }
 
@@ -40,7 +40,7 @@ public class DefaultHandlingTests : BaseCliTest
         // Assert
         using var _ = new AssertionScope();
 
-        result.Should().Be(1);
+        result.Should().Be(0);
         output.Should().MatchRegex(@"\d+\.\d+\.\d+");
     }
 
