@@ -16,6 +16,6 @@ public class AdditionalHelpTextProvider : IExecuteParsingFailure<int>
     public int Execute(string[] args, IEnumerable<Error> errors)
     {
         _console.WriteLine("NOTE: a global --verbose flag can be used to provide debug logging");
-        return 1;
+        return 0;
     }
 }
