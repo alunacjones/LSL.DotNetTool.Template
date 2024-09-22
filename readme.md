@@ -1,3 +1,6 @@
+[![Build status](https://img.shields.io/appveyor/ci/alunacjones/lsl-dotnettool-template.svg)](https://ci.appveyor.com/project/alunacjones/lsl-dotnettool-template)
+[![NuGet](https://img.shields.io/nuget/v/LSL.DotNetTool.Template.svg)](https://www.nuget.org/packages/LSL.DotNetTool.Template/)
+
 # LSL.DotNetTool.Template
 
 A template to quickly create a dotnet tool with dependency injection
