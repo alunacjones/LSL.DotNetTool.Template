@@ -23,7 +23,8 @@
       "type": "parameter",
       "datatype": "text",
       "defaultValue": "LSL.DotNetTool",
-      "replaces": "DotNetToolCommandName"
+      "replaces": "DotNetToolCommandName",
+      "isRequired": true
     } 
   },
   "sources": [{

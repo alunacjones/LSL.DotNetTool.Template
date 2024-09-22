@@ -10,14 +10,14 @@ Use the following to install the template:
 
 Once installed a new template called `lsl.dotnettool` will be availble to create a skeleton CLI.
 
-## Available Optional Parameters
+## Available Parameters
 
-| Parameter Name | Short Parameter Name | Description                                                                  |
-| -------------- | -------------------- | ---------------------------------------------------------------------------- |
-| includeExample | in                   | Creates and example verb, its handler and a unit test for the handler (Ping) |
-| commandName | c | Set the command name for your tool. When missing the command name defaults to the name of the project |
+| Parameter Name | Short Parameter Name | Description                                                                  |Required?|
+| -------------- | -------------------- | ---------------------------------------------------------------------------- | - |
+| includeExample | in                   | Creates and example verb, its handler and a unit test for the handler (Ping) |No (defaults to false)|
+| commandName | c | Set the command name for your tool. |Yes|
 
-> **NOTE** it is advised to try running the template with examples included to see how everything is structured and to see an example of unit testing your handlers. (`dotnet new lsl.dotnettool --includeExample -n MyTest`)
+> **NOTE** it is advised to try running the template with examples included to see how everything is structured and to see an example of unit testing your handlers. (`dotnet new lsl.dotnettool --includeExample -n MyTest --commandName MyCommand`)
 
 ## Further Information
 
