@@ -55,7 +55,8 @@
       "**/*.lock.json",
       "**/*.g.cs",
       ".gitignore",
-      "**/Logs/**"
+      "**/Logs/**",
+      "**/TestResults/**"
     ]
   }],  
   "guids": [
