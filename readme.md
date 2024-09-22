@@ -32,6 +32,10 @@ A generated tool depends on the following packages:
 
 It is advised to read their documentation to familiarise yourself with the key concepts involved in using the libraries.
 
+### Configuring your Service Collection
+
+The generated tool has a file `src/<YourSolution>.Cli/Infrastructure/HostBuilderFactory.cs` which is where any configuration of services and the default host should be placed.
+
 ### Folder Strucure
 The generated solution is structured as follows:
 
