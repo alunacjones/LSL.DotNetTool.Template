@@ -18,8 +18,6 @@ dotnet_csproj:
   assembly_version: '{version}'
   file_version: '{version}'
   informational_version: '{version}'
-before_build:
-- dotnet tool install coveralls.net
 build_script:
 - cmd: >-
     dotnet build -c Release
