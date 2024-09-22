@@ -1,8 +1,3 @@
-using CommandLine;
-using CommandLineParser.DependencyInjection.Interfaces;
-using FluentAssertions;
-using FluentAssertions.Execution;
-
 namespace LSL.DotNetTool.Cli.Tests.Handlers;
 
 public class PingHandlerTests : BaseCliTest

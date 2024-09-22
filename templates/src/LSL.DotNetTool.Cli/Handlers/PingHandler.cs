@@ -1,6 +1,3 @@
-using LSL.AbstractConsole;
-using Microsoft.Extensions.Logging;
-
 namespace LSL.DotNetTool.Cli.Handlers;
 
 public class PingHandler : IAsyncHandler<Ping>

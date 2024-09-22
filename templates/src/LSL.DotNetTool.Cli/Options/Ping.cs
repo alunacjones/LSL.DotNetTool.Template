@@ -1,6 +1,3 @@
-using CommandLine;
-using CommandLineParser.DependencyInjection.Interfaces;
-
 namespace LSL.DotNetTool.Cli.Options;
 
 [Verb("ping")]
