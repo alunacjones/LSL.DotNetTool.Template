@@ -10,7 +10,7 @@ public static class HostBuilderFactory
     /// Creates a host builder for the CLI
     /// </summary>
     /// <param name="args">The arguments passed into the CLI</param>
-    /// <returns></returns>
+    /// <returns>The default host builder for the CLI</returns>
     public static IHostBuilder Create(string[] args)
     {
         var builder = Host.CreateDefaultBuilder();

@@ -5,5 +5,9 @@ namespace LSL.DotNetTool.Cli.Infrastructure;
 /// </summary>
 public class CommandLineOptions
 {
+    /// <summary>
+    /// The command line arguments passed to the CLI
+    /// </summary>
+    /// <value></value>
     public string[] Arguments { get; set; } = default!;
 }

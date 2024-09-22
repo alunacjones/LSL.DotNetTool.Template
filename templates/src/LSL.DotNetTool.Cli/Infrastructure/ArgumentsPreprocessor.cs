@@ -6,6 +6,13 @@ namespace LSL.DotNetTool.Cli.Infrastructure;
 /// <remarks>This is used as we need to setup logging more eagerly than parsing the command line options</remarks>
 public static class ArgumentsPreprocessor
 {
+    /// <summary>
+    /// Consumes the --verbose flag if present in the command line arguments
+    /// </summary>
+    /// <remarks>This is used as we need to setup logging more eagerly than parsing the command line options</remarks>
+    /// <param name="IsVerbose"></param>
+    /// <param name="args"></param>
+    /// <returns>A flag indicating that logging should be enabled and a filtered set of the arguments (removes --verbose if it was present)</returns>
     public static (bool IsVerbose, string[] FilteredArguments) ProcessArguments(string[] args)
     {       
         var filteredResult = args.Aggregate(

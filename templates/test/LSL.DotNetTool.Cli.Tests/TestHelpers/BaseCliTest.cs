@@ -5,8 +5,17 @@ using Microsoft.Extensions.Hosting;
 
 namespace LSL.DotNetTool.Cli.Tests.TestHelpers;
 
+/// <summary>
+/// A helper base class to inherit from for creating unit tests
+/// </summary>
 public abstract class BaseCliTest
 {
+    /// <summary>
+    /// Builds the test host for consumption within unit tests
+    /// </summary>
+    /// <param name="args">The command line arguments that the test host instance should receive</param>
+    /// <param name="servicesConfigurator">Further setup of the host's service collection e.g. for adding mocks</param>
+    /// <returns>The test host</returns>
     protected static IHost BuildTestHost(
         string[] args,
         Action<IServiceCollection>? servicesConfigurator = null)

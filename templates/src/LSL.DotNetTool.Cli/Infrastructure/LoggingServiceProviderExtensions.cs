@@ -10,7 +10,7 @@ public static class LoggingServiceProviderExtensions
     /// </summary>
     /// <param name="source"></param>
     /// <param name="isVerbose"></param>
-    /// <returns></returns>
+    /// <returns>The original <c>IServiceCollection</c></returns>
     public static IServiceCollection AddCliLogging(this IServiceCollection source, bool isVerbose)
     {        
         return source.AddLogging(c => 
