@@ -17,7 +17,7 @@ Once installed a new template called `lsl.dotnettool` will be availble to create
 
 | Parameter Name | Short Parameter Name | Description                                                                  |Required?|
 | -------------- | -------------------- | ---------------------------------------------------------------------------- | - |
-| includeExample | in                   | Creates and example verb, its handler and a unit test for the handler (Ping) |No (defaults to false)|
+| includeExample | in                   | Creates an example verb, its handler and a unit test for the handler (Ping) |No|
 | commandName | c | Set the command name for your tool. |Yes|
 
 > **NOTE** it is advised to try running the template with examples included to see how everything is structured and to see an example of unit testing your handlers. (`dotnet new lsl.dotnettool --includeExample -n MyTest --commandName MyCommand`)
