@@ -1,4 +1,4 @@
-using LSL.DotNetTool.Logger;
+using LSL.Tool.Logger;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 

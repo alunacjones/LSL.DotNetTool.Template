@@ -15,7 +15,7 @@
   <ItemGroup>
     <PackageReference Include="CommandLineParser.DependencyInjection" Version="1.1.1" />
     <PackageReference Include="LSL.AbstractConsole.ServiceProvider" Version="1.0.1" />
-    <PackageReference Include="LSL.DotNetTool.Logger" Version="1.0.2" />
+    <PackageReference Include="LSL.Tool.Logger" Version="1.0.1" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
   </ItemGroup>
 </Project>
