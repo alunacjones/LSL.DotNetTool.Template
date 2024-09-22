@@ -1,4 +1,4 @@
-# LSL.DotnNetTool.Template
+# LSL.DotNetTool.Template
 
 A template to quickly create a dotnet tool with dependency injection
 
