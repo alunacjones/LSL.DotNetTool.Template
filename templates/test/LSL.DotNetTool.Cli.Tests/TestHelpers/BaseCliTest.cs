@@ -11,18 +11,18 @@ namespace LSL.DotNetTool.Cli.Tests.TestHelpers;
 public abstract class BaseCliTest
 {
     /// <summary>
-    /// Builds the test host for consumption within unit tests
+    /// Builds a delegate that be used to unit test the CLI
     /// </summary>
     /// <param name="args">The command line arguments that the test host instance should receive</param>
     /// <param name="servicesConfigurator">Further setup of the host's service collection e.g. for adding mocks</param>
-    /// <returns>The test host</returns>
-    protected static IHost BuildTestHost(
+    /// <returns>A delegate to invoke the test CLI</returns>
+    protected static Func<Task<TestHostResult>> BuildTestHostRunner(
         string[] args,
         Action<IServiceCollection>? servicesConfigurator = null)
     {
         var writer = new StringWriter();
 
-        return HostBuilderFactory.Create(args)
+        return async () => await HostBuilderFactory.Create(args)
             .ConfigureServices((context, services) =>
             {
                 services.Configure<ConsoleOptions>(s =>
@@ -32,6 +32,7 @@ public abstract class BaseCliTest
 
                 servicesConfigurator?.Invoke(services);
             })
-            .Build();
+            .Build()
+            .RunTestCliAsync();
     }
 }

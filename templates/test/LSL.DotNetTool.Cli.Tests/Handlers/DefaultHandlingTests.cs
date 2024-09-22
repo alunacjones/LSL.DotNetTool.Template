@@ -1,7 +1,5 @@
 using CommandLine;
 using CommandLineParser.DependencyInjection.Interfaces;
-using FluentAssertions;
-using FluentAssertions.Execution;
 using LSL.AbstractConsole;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -18,10 +16,10 @@ public class DefaultHandlingTests : BaseCliTest
     public async Task GivenACallWithTheHelpOption_ItShouldOutputTheHelpText(string[] args, string dummy)
     {
         // Arrange
-        var host = BuildTestHost(args);
+        var sut = BuildTestHostRunner(args);
 
         // Act
-        var (result, output) = await host.RunTestCliAsync();
+        var (result, output) = await sut();
 
         // Assert
         using var _ = new AssertionScope();
@@ -35,10 +33,10 @@ public class DefaultHandlingTests : BaseCliTest
     public async Task GivenACallWithTheVersionOption_ItShouldOutputTheVersionText(string[] args, string dummy)
     {
         // Arrange
-        var host = BuildTestHost(args);
+        var sut = BuildTestHostRunner(args);
 
         // Act
-        var (result, output) = await host.RunTestCliAsync();
+        var (result, output) = await sut();
 
         // Assert
         using var _ = new AssertionScope();
@@ -69,7 +67,7 @@ public class DefaultHandlingTests : BaseCliTest
     public async Task GivenACallWithATestVerb_ItShouldOutputTheTheExpectedResult(string[] args, string expectedOutput)
     {
         // Arrange
-        var host = BuildTestHost(
+        var sut = BuildTestHostRunner(
             args,
             s =>
             {
@@ -78,7 +76,7 @@ public class DefaultHandlingTests : BaseCliTest
             });
 
         // Act
-        var (result, output) = await host.RunTestCliAsync();
+        var (result, output) = await sut();
 
         // Assert
         using var _ = new AssertionScope();
@@ -91,7 +89,7 @@ public class DefaultHandlingTests : BaseCliTest
     public async Task GivenACallThatThrows_ItShouldOutputTheTheExpectedResult()
     {
         // Arrange
-        var host = BuildTestHost(
+        var sut = BuildTestHostRunner(
             ["exec"],
             s =>
             {
@@ -104,7 +102,7 @@ public class DefaultHandlingTests : BaseCliTest
             });
 
         // Act
-        var (result, output) = await host.RunTestCliAsync();
+        var (result, output) = await sut();
 
         // Assert
         using var _ = new AssertionScope();

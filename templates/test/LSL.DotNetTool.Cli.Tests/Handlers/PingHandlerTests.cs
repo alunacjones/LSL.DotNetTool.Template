@@ -9,10 +9,10 @@ public class PingHandlerTests : BaseCliTest
     public async Task Given_ValidArguments_ItShouldReturnTheExpectedResult(string[] args, string expectedOutput)
     {
         // Arrange
-        var host = BuildTestHost(args);
-
+        var sut = BuildTestHostRunner(args);
+        
         // Act
-        var (result, output) = await host.RunTestCliAsync();        
+        var (result, output) = await sut();        
 
         // Assert
         using var _ = new AssertionScope();
