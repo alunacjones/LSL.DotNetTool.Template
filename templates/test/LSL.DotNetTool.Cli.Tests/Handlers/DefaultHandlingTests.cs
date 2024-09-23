@@ -82,7 +82,7 @@ public class DefaultHandlingTests : BaseCliTest
         using var _ = new AssertionScope();
 
         result.Should().Be(0);
-        output.Should().Be(expectedOutput.NormaliseLineEndings());
+        output.Should().Be(expectedOutput.ReplaceLineEndings());
     }    
 
     [Test]
