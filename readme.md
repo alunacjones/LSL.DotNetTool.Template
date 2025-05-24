@@ -11,7 +11,7 @@ Use the following to install the template:
 
 `dotnet new install LSL.DotNetTool.Template`
 
-Once installed a new template called `lsl.dotnettool` will be availble to create a skeleton CLI.
+Once installed a new template called `lsl.dotnettool` will be available to create a skeleton CLI.
 
 ## Available Parameters
 
@@ -39,14 +39,15 @@ It is advised to read their documentation to familiarise yourself with the key c
 
 The generated tool has a file `src/<YourSolution>.Cli/Infrastructure/HostBuilderFactory.cs` which is where any configuration of services and the default host should be placed.
 
-### Folder Strucure
+### Folder Structure
+
 The generated solution is structured as follows:
 
 ```
 ├── src
 │   ├── <YourSolution>.Cli
 │   |   ├── Handlers 
-│   |   ├── Infastructure 
+│   |   ├── Infrastructure 
 │   |   ├── Options
 ├── test
 |   ├── <YourSolution>.Cli.Tests
