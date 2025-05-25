@@ -13,14 +13,14 @@ public static class LoggingServiceProviderExtensions
     /// <returns>The original <c>IServiceCollection</c></returns>
     public static IServiceCollection AddCliLogging(this IServiceCollection source, bool isVerbose)
     {        
-        return source.AddLogging(c => 
+        return source.AddLogging(logging => 
         {
-            c.ClearProviders();
-
+            logging.ClearProviders();
             if (isVerbose)
             {
-                c.Services.AddDotNetToolLogger();                
-                c.SetMinimumLevel(LogLevel.Debug);
+                logging
+                    .SetMinimumLevel(LogLevel.Debug)
+                    .AddDotNetToolLogger();                    
             }
         });
     }
