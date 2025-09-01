@@ -14,6 +14,6 @@ public static class HostExtensions
         var writer = host.Services.GetRequiredService<IOptions<ConsoleOptions>>().Value.TextWriter;
         writer.Flush();
 
-        return new TestHostResult(result, writer.ToString()!);
+        return new TestHostResult(result, writer.ToString()!, host.Services);
     }
 }
